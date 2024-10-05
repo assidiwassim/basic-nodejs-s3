@@ -12,6 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Print a simple log message
-      - name: Print Hello World
-        run: echo "Hello, World!"
+
+      - name: create folder my-test
+        run: mkdir my-test
+
+      - name: show list of folders
+        run: ls
+
+      - run: echo "hello" 
+
+

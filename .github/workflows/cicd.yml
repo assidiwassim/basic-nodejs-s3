@@ -41,3 +41,28 @@ jobs:
 
       - name: Show list of folders
         run: ls
+
+  job-4:
+    # job-3 depends on job-2
+    needs: job-1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create folder my-test-3
+        run: mkdir my-test-3
+
+      - name: Show list of folders
+        run: ls
+
+
+  job-5:
+    # job-3 depends on job-2
+    needs: job-4
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create folder my-test-3
+        run: mkdir my-test-3
+
+      - name: Show list of folders
+        run: ls

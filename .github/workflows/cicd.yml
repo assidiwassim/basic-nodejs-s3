@@ -8,17 +8,32 @@ on:
 
 # Define the jobs that will run in the workflow
 jobs:
-  log-message:
+  job-1:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Create folder my-test-1
+        run: mkdir my-test-1 
 
-      - name: create folder my-test
-        run: mkdir my-test
-
-      - name: show list of folders
+      - name: Show list of folders
         run: ls
 
-      - run: echo "hello" 
+  job-2:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Create folder my-test-2
+        run: mkdir my-test-2
 
+      - name: Show list of folders
+        run: ls
+
+  job-3:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create folder my-test-3
+        run: mkdir my-test-3
+
+      - name: Show list of folders
+        run: ls

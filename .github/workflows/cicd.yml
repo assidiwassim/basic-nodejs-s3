@@ -19,6 +19,8 @@ jobs:
         run: ls
 
   job-2:
+    # job-2 depends on job-1
+    needs: job-1
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +31,8 @@ jobs:
         run: ls
 
   job-3:
+    # job-3 depends on job-2
+    needs: job-2
     runs-on: ubuntu-latest
 
     steps:

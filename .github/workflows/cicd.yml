@@ -9,7 +9,6 @@ on:
 # Define the jobs that will run in the workflow
 jobs:
 
-
   build-and-push:
     runs-on: ubuntu-latest
     steps:
@@ -17,6 +16,8 @@ jobs:
       - name: cloner le code source 
         uses: actions/checkout@v4
 
-        
-      - name: test
-        run: ls 
+      - name: build docker image
+        run: docker build -t basic-nodejs-s3-image .
+
+      - name: show docker image
+        run: docker images

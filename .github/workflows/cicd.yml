@@ -14,5 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: cloner le code source 
+        uses: actions/checkout@v4
+
+        
       - name: test
         run: ls 

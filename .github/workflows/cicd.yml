@@ -1,5 +1,9 @@
 name:  CI/CD Workflow
 
+
+env:
+  BUILD_NUMBER: ${{ github.run_number }}
+
 # Triggers the workflow on push events
 on:
   push:
@@ -17,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: build docker image
-        run: docker build -t basic-nodejs-s3-image .
+        run: docker build -t basic-nodejs-s3-image:${{ env.BUILD_NUMBER }} .
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
@@ -26,10 +30,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: tag docker image
-        run: docker tag basic-nodejs-s3-image  assidiwassimdev/basic-nodejs-s3-image:latest
+        run: docker tag basic-nodejs-s3-image:${{ env.BUILD_NUMBER }}  assidiwassimdev/basic-nodejs-s3-image:${{ env.BUILD_NUMBER }}
 
-      - name: push docker image
-        run: docker push assidiwassimdev/basic-nodejs-s3-image:latest
+      - name: push docker image version = ${{ env.BUILD_NUMBER }}
+        run: docker push assidiwassimdev/basic-nodejs-s3-image:${{ env.BUILD_NUMBER }}
 
   test-job:
     runs-on: ubuntu-latest

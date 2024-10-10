@@ -4,10 +4,12 @@ const Item = require("./models/Item");
 const app = express()
 const port = 3001
 require('dotenv').config()
-console.log(process.env) // remove this after you've confirmed it is working
 
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+
+const calculate = require('./calculate')
+
 
 // "mongodb://localhost:27018/mydb" => connect from my host directly [use localhost & host-port]
 // "mongodb://mongodb-service:27017/mydb"  => connect from an other container in the same network [use service-name & container-port]
@@ -19,7 +21,8 @@ mongoose
 
 
 app.get('/', (req, res) => {
-    res.send('welcome ... test extra !')
+    const sum = calculate.cal(1,1)
+    res.status(200).send({sum:sum})
 })
 
 app.get("/items", (req, res) => {

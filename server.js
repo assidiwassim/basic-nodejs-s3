@@ -16,7 +16,7 @@ const calculate = require('./calculate')
 
 mongoose
     .connect(process.env.DB_HOST, { useNewUrlParser: true })
-    .then(() => console.log("MongoDB Connected"))
+    .then(() => console.log("MongoDB Connected..."))
     .catch((err) => console.log("Error = ", err));
 
 

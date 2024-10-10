@@ -1,4 +1,4 @@
-name: Simple CI Workflow
+name:  CI/CD Workflow
 
 # Triggers the workflow on push events
 on:
@@ -8,61 +8,11 @@ on:
 
 # Define the jobs that will run in the workflow
 jobs:
-  job-1:
+
+
+  build-and-push:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Create folder my-test-1
-        run: mkdir my-test-1 
 
-      - name: Show list of folders
-        run: ls
-
-  job-2:
-    # job-2 depends on job-1
-    needs: job-1
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create folder my-test-2
-        run: mkdir my-test-2
-
-      - name: Show list of folders
-        run: ls
-
-  job-3:
-    # job-3 depends on job-2
-    needs: job-2
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create folder my-test-3
-        run: mkdir my-test-3
-
-      - name: Show list of folders
-        run: ls
-
-  job-4:
-    # job-3 depends on job-2
-    needs: job-1
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create folder my-test-3
-        run: mkdir my-test-3
-
-      - name: Show list of folders
-        run: ls
-
-
-  job-5:
-    # job-3 depends on job-2
-    needs: job-4
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Create folder my-test-3
-        run: mkdir my-test-3
-
-      - name: Show list of folders
-        run: ls
+      - name: test
+        run: ls 

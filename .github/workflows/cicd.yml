@@ -24,3 +24,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: tag docker image
+        run: docker tag basic-nodejs-s3-image  assidiwassimdev/basic-nodejs-s3-image:latest
+
+      - name: push docker image
+        run: docker push assidiwassimdev/basic-nodejs-s3-image:latest

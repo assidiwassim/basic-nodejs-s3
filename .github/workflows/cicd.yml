@@ -78,4 +78,7 @@ jobs:
               sudo docker pull assidiwassimdev/basic-nodejs-s3-image:${{ env.BUILD_NUMBER }}
               sudo docker images
 
+              sudo docker stop basic-nodejs-s3-container 
+              sudo docker rm basic-nodejs-s3-container 
+              sudo docker run -d -p 3001:3001 --name basic-nodejs-s3-container assidiwassimdev/basic-nodejs-s3-image:${{ env.BUILD_NUMBER }}
         

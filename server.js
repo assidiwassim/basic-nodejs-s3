@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 const calculate = require('./calculate')
 
 
-// "mongodb://localhost:27018/mydb" => connect from my host directly [use localhost & host-port]..
+// "mongodb://localhost:27018/mydb" => connect from my host directly [use localhost & host-port].....
 // "mongodb://mongodb-service:27017/mydb"  => connect from an other container in the same network [use service-name & container-port]
 
 mongoose

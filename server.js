@@ -21,8 +21,7 @@ mongoose
 
 
 app.get('/', (req, res) => {
-    const sum = calculate.cal(1,1)
-    res.status(200).send({sum:sum,message:"hello"})
+    res.status(200).send("Hello Chabeb ...")
 })
 
 app.get("/items", (req, res) => {

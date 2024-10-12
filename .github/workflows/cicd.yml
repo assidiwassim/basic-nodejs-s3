@@ -75,7 +75,6 @@ jobs:
 
           script: | 
           
-              sudo su
-              docker ps
+              sudo docker ps
 
         

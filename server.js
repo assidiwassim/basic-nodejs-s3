@@ -24,6 +24,11 @@ app.get('/', (req, res) => {
     res.status(200).send("Hello Chabeb ...")
 })
 
+
+app.get('/test', (req, res) => {
+    res.status(200).send("This is a test ...")
+})
+
 app.get("/items", (req, res) => {
     Item.find()
         .then((items) => res.send({ items }))

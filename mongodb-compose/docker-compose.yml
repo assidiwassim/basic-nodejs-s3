@@ -27,7 +27,7 @@ networks:
     name: mongodb-network
 
 #SUPER-ADMIN = mongodb://mongodb-root-user:mongodb-root-pass@51.77.210.239:27017
-#DB-ADMIN = mongodb://db-user-s1:db-pass-s1@51.77.210.239:27017/mydb
+#DB-ADMIN = mongodb://db-user-s3:db-pass-s3@51.77.210.239:27017/mydb
 
 #mongodb://db-user-s3:db-pass-s3@localhost:27017/mydb
 #  mongodb://db-user-s3:db-pass-s3@51.77.210.239:27017/mydb

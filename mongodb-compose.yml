@@ -1,0 +1,30 @@
+version: "3.9"
+name: "mongodb-s1"
+
+services:
+  mongodb-develop:
+    container_name: mongodb-s1
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongodb-root-user
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb-root-pass
+      - MONGO_INITDB_DATABASE=db-s1
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb-volume:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - mongodb-network
+
+volumes:
+  mongodb-volume:
+    name: mongodb-volume
+
+networks:
+  mongodb-network:
+    name: mongodb-network
+
+#SUPER-ADMIN = mongodb://mongodb-root-user:mongodb-root-pass@51.77.210.239:27017
+#DB-ADMIN = mongodb://db-user-s1:db-pass-s1@51.77.210.239:27017/db-s1
